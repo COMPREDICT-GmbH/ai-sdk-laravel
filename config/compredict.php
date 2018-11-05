@@ -18,4 +18,6 @@ return [
     'user' => env('COMPREDICT_AI_CORE_USER', ''),
     'callback' => env('COMPREDICT_AI_CORE_CALLBACK', null),
     'fail_on_error' => env('COMPREDICT_AI_CORE_FAIL_ON_ERROR', true),
+    'ppk' => env('COMPREDICT_AI_CORE_PPK', null),
+    'passphrase' => env('COMPREDICT_AI_CORE_PASSPHRASE', "")
 ];

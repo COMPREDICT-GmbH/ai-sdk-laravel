@@ -61,6 +61,8 @@ COMPREDICT_AI_CORE_KEY=
 COMPREDICT_AI_CORE_USER=
 COMPREDICT_AI_CORE_CALLBACK=
 COMPREDICT_AI_CORE_FAIL_ON_ERROR=true
+COMPREDICT_AI_CORE_PPK=Path/to/PPK.pem
+COMPREIDCT_AI_CORE_PASSPHRASE=
 ```
 
 To customize the configuration file, publish the package configuration using Artisan.

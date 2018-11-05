@@ -43,7 +43,7 @@ class CompredictServiceProvider extends ServiceProvider
     {
         $this->app->singleton('compredict', function ($app) {
             $config = $app->make('config')->get('compredict');
-            $compredict_client = Client::getInstance($config['key'], $config['callback']);
+            $compredict_client = Client::getInstance($config['key'], $config['callback'], $config['ppk'], $config['passphrase']);
             $compredict_client->failOnError($config['fail_on_error']);
             return $compredict_client;
         });
