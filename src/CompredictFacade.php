@@ -1,7 +1,8 @@
-<?php 
-namespace Comrpedict\Laravel;
+<?php
+namespace Comrpedict\Algorithm;
 
 use Illuminate\Support\Facades\Facade;
+
 /**
  * Facade for the Comrpedict service
  *
@@ -15,6 +16,6 @@ class CompredictFacade extends Facade
      */
     protected static function getFacadeAccessor()
     {
-        return 'compredict';
+        return 'compredict_algo';
     }
 }

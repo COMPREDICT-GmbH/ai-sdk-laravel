@@ -1,12 +1,11 @@
 <?php
 
-namespace Compredict\Laravel;
+namespace Compredict\Algorithm;
 
-use Compredict\API\Client as Client;
-use Illuminate\Support\ServiceProvider;
+use Compredict\API\Algorithms\Client as Client;
 use Illuminate\Foundation\Application as LaravelApplication;
+use Illuminate\Support\ServiceProvider;
 use Laravel\Lumen\Application as LumenApplication;
-
 
 class CompredictServiceProvider extends ServiceProvider
 {
@@ -16,7 +15,25 @@ class CompredictServiceProvider extends ServiceProvider
      *
      * @var bool
      */
-    protected $defer = true;
+    protected $defer = false;
+
+    /**
+     * Register services.
+     *
+     * @return void
+     */
+    public function register()
+    {
+        $this->app->singleton('compredict_algo', function ($app) {
+            $config = $app->make('config')->get('compredict');
+            $config_algo = $config['ai_core'];
+            $compredict_client = Client::getInstance($config_algo['key'], $config_algo['callback'], $config_algo['ppk'], $config_algo['passphrase']);
+            $compredict_client->failOnError($config_algo['fail_on_error']);
+            return $compredict_client;
+        });
+
+        $this->app->alias('CP_Algo', 'Compredict\API\Algorithms\Client');
+    }
 
     /**
      * Bootstrap services.
@@ -25,7 +42,7 @@ class CompredictServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-        $source = dirname(__DIR__).'/config/compredict.php';
+        $source = dirname(__DIR__) . '/config/compredict.php';
         if ($this->app instanceof LaravelApplication && $this->app->runningInConsole()) {
             $this->publishes([$source => config_path('compredict.php')]);
         } elseif ($this->app instanceof LumenApplication) {
@@ -35,29 +52,12 @@ class CompredictServiceProvider extends ServiceProvider
     }
 
     /**
-     * Register services.
-     *
-     * @return void
-     */
-    public function register()
-    {
-        $this->app->singleton('compredict', function ($app) {
-            $config = $app->make('config')->get('compredict');
-            $compredict_client = Client::getInstance($config['key'], $config['callback'], $config['ppk'], $config['passphrase']);
-            $compredict_client->failOnError($config['fail_on_error']);
-            return $compredict_client;
-        });
-
-        $this->app->alias('compredict', 'Compredict\API\Client');
-    }
-
-    /**
      * Get the services provided by the provider.
      *
      * @return array
      */
     public function provides()
     {
-        return ['compredict', 'Compredict\API\Client'];
+        return ['compredict_algo', 'Compredict\API\Algorithms\Client'];
     }
 }

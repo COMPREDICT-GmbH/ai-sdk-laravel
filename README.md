@@ -31,7 +31,7 @@ To use the COMPREDICT Service Provider, you must register the provider when boot
 In Lumen find the `Register Service Providers` in your `bootstrap/app.php` and register the COMPREDICT Service Provider.
 
 ```php
-    $app->register(Compredict\Laravel\CompredictServiceProvider::class);
+    $app->register(Compredict\Algorithm\CompredictServiceProvider::class);
 ```
 
 ### Laravel
@@ -40,7 +40,7 @@ In Laravel find the `providers` key in your `config/app.php` and register the CO
 ```php
     'providers' => array(
         // ...
-        Compredict\Laravel\CompredictServiceProvider::class,
+        Compredict\Algorithm\CompredictServiceProvider::class,
     )
 ```
 
@@ -49,7 +49,7 @@ Find the `aliases` key in your `config/app.php` and add the COMPREDICT facade al
 ```php
     'aliases' => array(
         // ...
-        'COMPREDICT' => Compredict\Laravel\CompredictFacade::class,
+        'CP_Algo' => Compredict\Algorithm\CompredictFacade::class,
     )
 ```
 
@@ -68,7 +68,7 @@ COMPREIDCT_AI_CORE_PASSPHRASE=
 To customize the configuration file, publish the package configuration using Artisan.
 
 ```sh
-php artisan vendor:publish  --provider="Compredict\Laravel\CompredictServiceProvider"
+php artisan vendor:publish  --provider="Compredict\Algorithm\CompredictServiceProvider"
 ```
 
 Update your settings in the generated `app/config/compredict.php` configuration file.
@@ -79,5 +79,5 @@ In order to use the COMPREDICT's AI Core SDK for PHP within your app, you need t
 Container](http://laravel.com/docs/ioc). The following example gets all the algorithms allowed for the user.
 
 ```php
-$algorithms = App::make('compredict')->getAlgorithms();
+$algorithms = App::make('CP_Algo')->getAlgorithms();
 ```

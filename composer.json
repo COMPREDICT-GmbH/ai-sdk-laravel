@@ -29,15 +29,15 @@
         "laravel/lumen-framework": "To test the Lumen bindings"
     },
     "autoload": {
-        "psr-4": { "Compredict\\Laravel\\": "src/" }
+        "psr-4": { "Compredict\\Algorithm\\": "src/" }
     },
     "extra": {
         "laravel": {
             "providers": [
-                "Compredict\\Laravel\\CompredictServiceProvider"
+                "Compredict\\Algorithm\\CompredictServiceProvider"
             ],
             "aliases": {
-                "COMPREDICT": "Compredict\\Laravel\\CompredictFacade"
+                "CP_Algo": "Compredict\\Algorithm\\CompredictFacade"
             }
         }
     }
