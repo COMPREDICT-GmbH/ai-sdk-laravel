@@ -20,7 +20,7 @@ trait CPAlgorithmTrait
         if (is_null($this->algorithms) && is_null($this->client)) {
             $callback_url = \Config::get('compredict.ai_core.callback');
             $this->client = new CPAlgoClient($this->APIKey, $callback_url);
-            $this->algorithms = $this->client->getAlgorithms();
+            $this->algorithms = $this->client->getAlgorithms()->algorithms;
         }
         return $this->algorithms;
     }
