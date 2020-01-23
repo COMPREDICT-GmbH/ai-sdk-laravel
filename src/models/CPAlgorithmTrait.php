@@ -15,6 +15,11 @@ trait CPAlgorithmTrait
         return $this->algorithms->algorithms;
     }
 
+	public function getAlgorithmsLastError()
+	{
+		return $this->client->getLastError();
+	}
+
     public function algorithms()
     {
         if (is_null($this->algorithms) && is_null($this->client)) {
