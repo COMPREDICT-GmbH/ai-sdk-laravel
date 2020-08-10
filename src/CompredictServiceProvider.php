@@ -29,6 +29,7 @@ class CompredictServiceProvider extends ServiceProvider
             $config_algo = $config['ai_core'];
             $compredict_client = Client::getInstance($config_algo['key'], $config_algo['callback'], $config_algo['ppk'], $config_algo['passphrase']);
             $compredict_client->failOnError($config_algo['fail_on_error']);
+	        $compredict_client->verifyPeer($config_algo['ssl']);
             return $compredict_client;
         });
 
