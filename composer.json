@@ -2,7 +2,7 @@
     "name": "compredict/ai-sdk-laravel",
     "homepage": "https://compredict.de",
     "description": "Compredict's AI Core API for laravel.",
-    "version": "1.1.1-beta",
+    "version": "1.1.2-beta",
     "keywords": ["laravel", "laravel 5", "compredict", "AI", "sdk"],
     "type":"library",
     "license":"MIT",
