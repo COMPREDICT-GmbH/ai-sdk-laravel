@@ -18,6 +18,7 @@ return [
 		'user'          => env('COMPREDICT_AI_CORE_USER', ''),
 		'callback'      => env('COMPREDICT_AI_CORE_CALLBACK', null),
 		'fail_on_error' => env('COMPREDICT_AI_CORE_FAIL_ON_ERROR', true),
+		'ssl'           => env('COMPREDICT_AI_CORE_SSL', true),
 		'ppk'           => env('COMPREDICT_AI_CORE_PPK', null),
 		'passphrase'    => env('COMPREDICT_AI_CORE_PASSPHRASE', ""),
 	],
@@ -25,5 +26,6 @@ return [
 	'users' => [
 		'admin_key'     => env('COMPREDICT_USERS_ADMIN_KEY', null),
 		'fail_on_error' => env('COMPREDICT_USERS_FAIL_ON_ERROR', false),
+		'ssl'           => env('COMPREDICT_USERS_SSL', true),
 	],
 ];
