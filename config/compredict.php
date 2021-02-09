@@ -14,13 +14,14 @@ return [
 	 */
 	'ai_core' => [
 		'key'           => env('COMPREDICT_AI_CORE_KEY', ''),
-		'server_url'    => env('compredict_ai_server_url', 'https://aic.compredict.de/api/'),
 		'user'          => env('COMPREDICT_AI_CORE_USER', ''),
+		'server_url'    => env('COMPREDICT_AI_SERVER_URL', 'https://aic.compredict.de/api/'),
+		'api_version'   => env('COMPREDICT_AI_API_VERSION', 'v1'),
 		'callback'      => env('COMPREDICT_AI_CORE_CALLBACK', null),
 		'fail_on_error' => env('COMPREDICT_AI_CORE_FAIL_ON_ERROR', true),
-		'ssl'           => env('COMPREDICT_AI_CORE_SSL', true),
 		'ppk'           => env('COMPREDICT_AI_CORE_PPK', null),
 		'passphrase'    => env('COMPREDICT_AI_CORE_PASSPHRASE', ""),
+		'ssl'           => env('COMPREDICT_AI_CORE_SSL', true),
 	],
 
 	'users' => [
