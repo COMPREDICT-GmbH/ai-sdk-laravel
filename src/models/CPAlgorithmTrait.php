@@ -15,10 +15,15 @@ trait CPAlgorithmTrait
         return $this->algorithms->algorithms;
     }
 
-	public function getAlgorithmsLastError()
-	{
-		return $this->client->getLastError();
-	}
+    public function getAlgorithmsLastError()
+    {
+        $lastError = $this->client->getLastError();
+        if ($lastError != null && property_exists($lastError, 'error')) {
+            $lastError->errors = $lastError->error;
+            unset($lastError->error);
+        }
+        return $lastError;
+    }
 
     public function algorithms()
     {
